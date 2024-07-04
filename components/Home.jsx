@@ -1,8 +1,11 @@
 import React from "react";
-import { useAuth } from "../../contexts/AuthContext";
+import AddResourceForm from "../AddResourceForm/AddResourceForm";
 
 const Home = () => {
-  const { isLoggedIn, userName } = useAuth();
+  // const { isLoggedIn, userName } = useAuth();
+  //Placeholder for now
+  const isLoggedIn = false;
+  const [showAddResourceForm, setShowAddResourceForm] = useState(false);
   // Dummy data for now
   const resources = [
     { type: "laptops", count: 5 },
@@ -23,10 +26,24 @@ const Home = () => {
   const handleProjectorControl = (action) => {
     console.log(`Perform ${action} action on projector`);
   };
+  const handleAddResource = (newResource) => {
+    // Update state or perform action to add new resource
+    console.log("Adding new resource:", newResource);
+    // For now, let's log the addition and update state
+    setResources([...resources, newResource]);
+    setShowAddResourceForm(false); // Hide the form after submission
+  };
 
   return (
     <div>
       <div>{isLoggedIn && <p>Welcome, {userName}!</p>}</div>;
+      {/* Include a button to toggle the AddResourceForm visibility */}
+      <button onClick={() => setShowAddResourceForm(!showAddResourceForm)}>
+        {showAddResourceForm ? "Cancel Add Resource" : "Add New Resource"}
+      </button>
+      {showAddResourceForm && (
+        <AddResourceForm onAddResource={handleAddResource} />
+      )}
       {/* Resource Counts Table with Book and Return Buttons */}
       <div>
         <h2>Avaliable Resources</h2>
