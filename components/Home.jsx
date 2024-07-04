@@ -2,9 +2,9 @@ import React from "react";
 import AddResourceForm from "../AddResourceForm/AddResourceForm";
 
 const Home = () => {
-  // const { isLoggedIn, userName } = useAuth();
-  //Placeholder for now
-  const isLoggedIn = false;
+  //const { isLoggedIn, userName } = useAuth();
+  //To be updated
+  const isLoggedIn = False;
   const [showAddResourceForm, setShowAddResourceForm] = useState(false);
   // Dummy data for now
   const resources = [
