@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Student Timetable Form</title>
+        <script>
+            function validateForm(event) {
+                const emailField = document.getElementById('email');
+                const emailError = document.getElementById('emailError');
+                const contactField = document.getElementById('contact');
+                const contactError = document.getElementById('contactError');
+                const emailPattern = /^[a-zA-Z0-9._%+-]+@nmamit\.in$/;
+                const contactPattern = /^\d{10}$/;
+
+                if (!emailPattern.test(emailField.value)) {
+                    emailError.textContent = "Please enter a valid @nmamit.in email address.";
+                    event.preventDefault();
+                    return false;
+                } else {
+                    emailError.textContent = "";
+                }
+
+                if (!contactPattern.test(contactField.value)) {
+                    contactError.textContent = "Please enter a valid 10-digit contact number.";
+                    event.preventDefault();
+                    return false;
+                } else {
+                    contactError.textContent = "";
+                }
+
+                return true;
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+                document.getElementById('timetableForm').addEventListener('submit', validateForm);
+            });
+        </script>
+    </head>
+    <body>
+        <h1>Student Timetable Form</h1>
+        <form id="timetableForm">
+            <label for="dept"><b>Department</b></label><br>
+            <select id="dept" name="dept" required>
+                <option value="" disabled selected>Select your department</option>
+                <option value="aids">Artificial Intelligence and Data Science</option>
+                <option value="aiml">Artificial Intelligence and Machine Learning</option>
+                <option value="bt">Biotechnology</option>
+                <option value="civil">Civil Engineering</option>
+                <option value="cce">Computer and Communication Engineering</option>
+                <option value="cse">Computer Science Engineering</option>
+                <option value="eee">Electrical and Electronics Engineering</option>
+                <option value="ec">Electronics and Communication Engineering</option>
+                <option value="ise">Information Science Engineering</option>
+                <option value="mech">Mechanical Engineering</option>
+                <option value="rai">Robotics and Artificial Intelligence</option>
+            </select>
+            <br><br>
+
+            <label for="class"><b>Class(Sem)</b></label><br>
+            <input type="number" id="class" name="class" min="1" max="8" required>
+            <br><br>
+
+            <label for="sec"><b>Section</b></label><br>
+            <input type="text" id="sec" name="section" pattern="[A-Za-z]" required>
+            <br><br>
+            <label for="year"><b>Year</b></label><br>
+                <input type="radio" id="1" name="year" required>
+                <label for="1">1</label><br>
+                <input type="radio" id="2" name="year" required>
+                <label for="2">2</label><br>
+                <input type="radio" id="3" name="year" required>
+                <label for="3">3</label><br>
+                <input type="radio" id="4" name="year" required>
+                <label for="4">4</label>
+            <br><br>
+
+            <label for="name" required><b>Name of CR</b></label><br>
+            <input type="text" id="name" name="name">
+            <br><br>
+
+            <label for="contact" required><b>Contact No.</b></label><br>
+            <input type="text" id="contact" name="contact" pattern="[0-9]{10}">
+            <span id="contactError"></span>
+            <br><br>
+
+            <label for="email"><b>Email </b><i>(@nmamit.in)</i></label><br>
+            <input type="email" id="email" name="email" required>
+            <span id="emailError"></span>
+            <br><br>
+
+            <label for="tt" required><b>Upload Timetable </b><i>(pdf/doc/docx/png/jpg only)</i></label><br>
+            <input type="file" id="tt" name="timetable" accept=".pdf,.doc,.docx,image/*" required>
+            <br><br>
+
+            <input type="submit" value="Submit">
+            <input type="reset" value="Reset">
+        </form>
+    </body>
+</html>
