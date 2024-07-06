@@ -1,0 +1,32 @@
+.timetable {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .day-column {
+    flex: 1;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+  }
+  
+  .time-slot {
+    margin: 5px 0;
+    padding: 5px;
+  }
+  
+  .time-slot.highlight {
+    background-color: yellow;
+  }
+  
+  /* styles.css */
+
+.highlighted {
+    background-color: yellow;
+  }
+  
+  .timetable .highlighted {
+    background-color: yellow; /* Example highlight color */
+    font-weight: bold; /* Example style */
+  }
+  
