@@ -1,0 +1,155 @@
+body {
+    background-color: #ffffff; 
+    padding: 10px;
+    font-family: Arial, sans-serif;
+  }
+  
+  .innercontainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 1.5rem;
+  }
+  .welcome-message {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .resource-table {
+    border-collapse: collapse;
+  }
+  
+ .resource-section table td {
+    border-bottom: 1px solid #dddddd; 
+    padding: 12px;
+    text-align: center;
+}
+  
+.resource-section table th {
+    background-color: #f1f5f9;  
+    padding: 12px;
+    text-align: center;
+    }
+  
+  .b-button {
+    background-color: #0074d9;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 12px;
+    cursor: pointer;
+    margin-right: 10px;
+  }
+  
+  .b-button:hover{
+    background-color: #0088ff;
+  }
+
+  .w-button {
+    background-color: #ffffff;
+    color: #000000;
+    border: 0.01px solid rgb(224 224 224);
+    border-radius: 4px;
+    padding: 8px 12px;
+    cursor: pointer;
+  }
+  .w-button:hover{
+    background-color: #f1f5f9;  
+  }
+  
+  .upload-timetable {
+    margin-top: 20px;
+  }
+  
+  input{
+   border-radius:4px;
+   border: 0.01px solid rgb(224 224 224);
+   margin-right:8px;
+  }
+  input::file-selector-button {
+    padding: 10px;
+    border: none;
+    font-weight: bolder;
+    background-color: transparent;
+  }
+  input::file-selector-button:hover{
+    background-color: #f1f5f9;  
+  }
+
+  .projector-control-container{
+    background-color: #f1f5f9;
+    padding: 20px;
+    border-radius: 10px;
+  }
+
+  .pbutton{
+    background-color: transparent;
+    border: 0.01px solid transparent;
+    border-radius: 100px;
+  }
+  .pbutton:hover{
+    border: 0.01px solid rgb(224 224 224);
+    border-radius: 100px;
+  }
+.pbutton img{
+    height: 30px;
+}
+.vbutton{
+    background-color: transparent;
+    border: 0.01px solid transparent;
+    border-radius: 100px;
+    padding: 5px;
+    font-size: 24px;
+}
+.vbutton img{
+    height: 20px;
+}
+.vbutton:hover{
+    border: 0.01px solid rgb(224 224 224);
+    border-radius: 100px;
+  }
+.nav{
+    padding: 10px 20px;
+    background-color: transparent;
+    border: 0.01px solid transparent;
+}
+.nav img{
+    height: 50px;
+    width: auto;
+}
+.nav:hover{
+    transform: scale(1.5);
+}
+.unav img{
+    transform: rotate(270deg);
+}
+.lnav img{
+    transform: rotate(180deg);
+}
+.dnav img{
+    transform: rotate(90deg);
+}
+.navok{
+    text-align: center;
+    font-size: 34px;
+    font-weight: bolder;
+    padding:10px 25px;
+    background-color: transparent;
+    border: 0.01px solid transparent;
+}
+.navok:hover{
+    border: 0.01px solid rgb(224 224 224);
+    border-radius: 1000px; 
+}
+.inputsrc{
+    background-color: transparent;
+    border: none;
+}
+.inputsrc img{
+    height: 30px;
+    width: auto;
+}
+.inputsrc img:hover{
+    transform: scale(1.2);
+}

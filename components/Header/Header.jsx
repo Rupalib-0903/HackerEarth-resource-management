@@ -1,12 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Logo from "../../assets/logo.png";
-import { useAuth } from "../../contexts/AuthContext";
 import "./Header.css";
 
 const Header = () => {
-  const { isLoggedIn } = useAuth();
-
+  //const { isLoggedIn } = useAuth();
+  //Placeholder for now
+  const isLoggedIn = false;
   return (
     <header className="header">
       <Link to="/">
@@ -21,11 +21,11 @@ const Header = () => {
           </li>
           <li>
             {isLoggedIn ? (
-              <Link to="/profile" className="nav-link">
+              <Link to="#" className="nav-link">
                 Profile
               </Link>
             ) : (
-              <Link to="/sign-in" className="nav-link">
+              <Link to="#" className="nav-link">
                 Sign In
               </Link>
             )}
