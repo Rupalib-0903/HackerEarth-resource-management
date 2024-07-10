@@ -32,8 +32,7 @@ body {
     width: 100%;
   }
   
-  .selection-form img,
-  .signup-form img {
+  img {
     max-width: 80%;
     height: auto;
     margin-bottom: 20px;

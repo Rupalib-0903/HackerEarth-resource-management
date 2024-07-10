@@ -128,8 +128,14 @@ const Signup = () => {
 
   return (
     <div className="App">
+      {/* Image */}
+      <div className="logo">
+       
+      </div>
+
       <div className="container">
         <div className="selection-form" style={{ display: role ? 'none' : '' }}>
+        <img src="https://nmamit.nitte.edu.in/img/nitte-nmamit-logo.png" alt="NMAMIT Logo" />
           <h2>Sign Up</h2>
           <p>Select your role to proceed:</p>
           <button onClick={() => handleRoleSelection('Student')}>Sign Up as Student</button>
@@ -138,7 +144,9 @@ const Signup = () => {
 
         {role && (
           <div className="signup-form">
+             <img src="https://nmamit.nitte.edu.in/img/nitte-nmamit-logo.png" alt="NMAMIT Logo" />
             <h2>Sign Up as {role}</h2>
+           
             <div className="messages">
               {errorMessageComponent()}
               {successMessage()}
