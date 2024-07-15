@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resource Request Form</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+        form {
+            width: 85%;
+            max-width: 600px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        fieldset {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        legend {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        label, input, select {
+            display: block;
+            margin-bottom: 10px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        input, select {
+            padding: 8px;
+            font-size: 16px;
+        }
+        button {
+            margin-top: 10px;
+            padding: 10px 15px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+        }
+        button[type="reset"] {
+            background-color: #f44336;
+            color: white;
+            border: none;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+
+<form id="resourceForm" action="/submit" method="post">
+    <fieldset>
+        <legend>Resource form</legend>
+
+        <label for="name">Name of CR:</label>
+        <input type="name" id="name" name="name" aria-label="Name of CR" required>
+
+        <label for="usn">USN:</label>
+        <input type="text" id="usn" name="usn" aria-label="USN" required pattern="[A-Za-z0-9]+">
+
+        <label for="branch">Branch:</label>
+        <select id="branch" name="branch" aria-label="Branch" required>
+            <option value="">Select</option>
+            <option value="ISE">ISE</option>
+            <option value="CSE">CSE</option>
+            <option value="CCE">CCE</option>
+            <option value="Robotics">Robotics</option>
+            <option value="EEE">EEE</option>
+            <option value="EC">EC</option>
+            <option value="1st Year">1st Year</option>
+            <option value="AIDS">AIDS</option>
+            <option value="AIML">AIML</option>
+            <option value="Civil">Civil</option>
+            <option value="Mech">Mech</option>
+        </select>
+
+        <label for="classroom">Classroom Number:</label>
+        <input type="text" id="classroom" name="classroom" aria-label="Classroom Number" required>
+
+        <label for="year">Year:</label>
+        <select id="year" name="year" aria-label="Year" required>
+            <option value="">Select</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+        </select>
+
+        <label for="sec">Section:</label>
+        <input type="text" id="sec" name="sec" aria-label="Section" required>
+
+        <label for="resource">Resource Type:</label>
+        <select id="resource" name="resource" aria-label="Resource Type" required>
+            <option value="">Select</option>
+            <option value="Laptop">Laptop</option>
+            <option value="Projector Remote">Projector Remote</option>
+            <option value="Projector">Projector</option>
+            <option value="Speaker">Speaker</option>
+        </select>
+
+        <label for="faculty">Faculty Incharge for the class:</label>
+        <input type="text" id="faculty" name="faculty" aria-label="Faculty Incharge for the class" required>
+
+        <label for="timeFrom">Time From:</label>
+        <input type="time" id="timeFrom" name="timeFrom" aria-label="Time From" required>
+
+        <label for="timeTo">Time To:</label>
+        <input type="time" id="timeTo" name="timeTo" aria-label="Time To" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" aria-label="Email" pattern="[a-zA-Z0-9._%+-]+@nmamit\.in" required>
+
+    </fieldset>
+    <button type="submit">Submit</button>
+    <button type="reset">Reset</button>
+</form>
+<script>
+    document.getElementById('resourceForm').addEventListener('submit', function(e) {
+        let isValid = true;
+
+        const nameField = document.getElementById('name');
+        const classroomField = document.getElementById('classroom');
+        const timeFromField = document.getElementById('timeFrom');
+        const timeToField = document.getElementById('timeTo');
+        const resourceField = document.getElementById('resource');
+        const facultyField = document.getElementById('faculty');
+        const emailField = document.getElementById('email');
+        const emailPattern = /^[a-zA-Z0-9._%+-]+@nmamit\.in$/;
+        const namePattern = /^[a-zA-Z\s]+$/;
+
+        if (!nameField.value) {
+            alert('Please enter the Name of CR');
+            isValid = false;
+        } else if (!namePattern.test(nameField.value)) {
+            alert('Name of CR should contain only alphabetic characters');
+            isValid = false;
+        }
+
+        if (!classroomField.value) {
+            alert('Please enter the Classroom Number');
+            isValid = false;
+        }
+
+        if (!timeFromField.value) {
+            alert('Please enter the Time From');
+            isValid = false;
+        }
+
+        if (!timeToField.value) {
+            alert('Please enter the Time To');
+            isValid = false;
+        }
+
+        if (timeFromField.value && timeToField.value && timeFromField.value >= timeToField.value) {
+            alert('Time From must be earlier than Time To');
+            isValid = false;
+        }
+
+        if (!resourceField.value) {
+            alert('Please select a Resource Type');
+            isValid = false;
+        }
+
+        if (!facultyField.value) {
+            alert('Please enter the Faculty Incharge for the class');
+            isValid = false;
+        }
+
+        if (!emailPattern.test(emailField.value)) {
+            alert('Please use a valid @nmamit.in email address');
+            isValid = false;
+        }
+
+        if (!isValid) {
+            e.preventDefault();
+        }
+    });
+</script>
+
+</body>
+</html>
