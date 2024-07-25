@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Timetable = require('../models/Timetable');
+const { highlightTimeSlot } = require('../controllers/timetableController');
 
 // Fetch all timetables
 router.get('/', async (req, res) => {
@@ -21,6 +22,9 @@ router.post('/highlight-timeslot', async (req, res) => {
     if (!timetable) {
       return res.status(404).json({ message: 'Timetable not found' });
     }
+
+
+router.post('/highlight-timeslot', highlightTimeSlot);
 
     // Find and update the selected time slot
     let found = false;

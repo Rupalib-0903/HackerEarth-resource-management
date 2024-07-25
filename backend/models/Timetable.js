@@ -1,5 +1,13 @@
 const mongoose = require('mongoose');
 
+const TimeSlotSchema = new mongoose.Schema({
+  SubjectId: { type: String, required: true },
+  CrId: { type: String, required: true },
+  StartTime: { type: String, required: true },
+  EndTime: { type: String, required: true },
+  selectedByCR: { type: Boolean, default: false } // Field to indicate if slot is highlighted
+});
+
 const TimetableSchema = new mongoose.Schema({
   lecturer: {
     LecturerId: { type: String, required: true },
@@ -15,48 +23,15 @@ const TimetableSchema = new mongoose.Schema({
     block: { type: String, required: true }
   }],
   table: {
-    Monday: [{
-      SubjectId: { type: String, required: true },
-      CrId: { type: String, required: true },
-      StartTime: { type: String, required: true },
-      EndTime: { type: String, required: true }
-    }],
-    Tuesday: [{
-      SubjectId: { type: String, required: true },
-      CrId: { type: String, required: true },
-      StartTime: { type: String, required: true },
-      EndTime: { type: String, required: true }
-    }],
-    // Add other days as needed
-    Tuesday: [{
-      SubjectId: { type: String, required: true },
-      CrId: { type: String, required: true },
-      StartTime: { type: String, required: true },
-      EndTime: { type: String, required: true }
-    }],
-    Wednesday: [{
-      SubjectId: { type: String, required: true },
-      CrId: { type: String, required: true },
-      StartTime: { type: String, required: true },
-      EndTime: { type: String, required: true }
-    }],
-    Thursday: [{
-      SubjectId: { type: String, required: true },
-      CrId: { type: String, required: true },
-      StartTime: { type: String, required: true },
-      EndTime: { type: String, required: true }
-    }],
-    Friday: [{
-      SubjectId: { type: String, required: true },
-      CrId: { type: String, required: true },
-      StartTime: { type: String, required: true },
-      EndTime: { type: String, required: true }
-    }]
+    Monday: [TimeSlotSchema],
+    Tuesday: [TimeSlotSchema],
+    Wednesday: [TimeSlotSchema],
+    Thursday: [TimeSlotSchema],
+    Friday: [TimeSlotSchema]
+    // Add more days if needed (e.g., Saturday, Sunday)
   }
 });
 
 const Timetable = mongoose.model('Timetable', TimetableSchema);
 
 module.exports = Timetable;
-
-
