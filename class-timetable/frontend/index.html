@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class Timetable</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Class Timetables</h1>
+        <div class="search-bar">
+            <input type="text" id="depNameInput" placeholder="Search department...">
+            <button onclick="searchDepartment()">🔍</button>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Class</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="timetableBody">
+                <!-- Content will be dynamically generated -->
+            </tbody>
+        </table>
+        <hr>
+        <h2>Add New Section</h2>
+        <form id="sectionForm" enctype="multipart/form-data">
+            <input type="text" id="sectionName" placeholder="Section name" required>
+            <input type="file" id="timetableFile" required>
+            <button type="submit">Add Section</button>
+        </form>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

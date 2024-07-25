@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resource Request Form</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            padding: 10px;
+            box-sizing: border-box;
+            overflow: auto;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            max-width: 100%;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        form {
+            width: 100%;
+            max-width: 600px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-sizing: border-box;
+        }
+        fieldset {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        legend {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input, select {
+            width: 100%;
+            padding: 8px;
+            font-size: 16px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+        .button-group {
+            display: flex;
+            justify-content: space-between;
+        }
+        button {
+            margin-top: 10px;
+            padding: 10px 15px;
+            font-size: 16px;
+            cursor: pointer;
+            width: 48%;
+            box-sizing: border-box;
+        }
+        button[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+        }
+        button[type="reset"] {
+            background-color: #f44336;
+            color: white;
+            border: none;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <form id="resourceForm" action="/submit" method="post">
+        <fieldset>
+            <legend>Resource form</legend>
+
+            <label for="name">Name of CR:</label>
+            <input type="text" id="name" name="name" aria-label="Name of CR" placeholder="Name" required pattern="[a-zA-Z\s]+" title="Please enter a valid name.">
+
+            <label for="usn">USN:</label>
+            <input type="text" id="usn" name="usn" aria-label="USN" placeholder="USN" required pattern="[A-Za-z0-9]+" title="Please enter a valid USN.">
+
+            <label for="branch">Branch:</label>
+            <select id="branch" name="branch" aria-label="Branch" required>
+                <option value="">Select</option>
+                <option value="Artificial Intelligence & Data Science">Artificial Intelligence & Data Science</option>
+                <option value="Biotechnology">Biotechnology</option>
+                <option value="Civil Engineering">Civil Engineering</option>
+                <option value="Computer & Communication Engineering">Computer & Communication Engineering</option>
+                <option value="Computer Science & Engineering">Computer Science & Engineering</option>
+                <option value="Computer Science (Full Stack Development)">Computer Science (Full Stack Development)</option>
+                <option value="Computer Science & Engineering (Cyber Security)">Computer Science & Engineering (Cyber Security)</option>
+                <option value="Electrical & Electronics Engineering">Electrical & Electronics Engineering</option>
+                <option value="Electronics & Communication Engineering">Electronics & Communication Engineering</option>
+                <option value="Electronics Engineering (VLSI Design & Technology)">Electronics Engineering (VLSI Design & Technology)</option>
+                <option value="Electronics & Communication (ACT)">Electronics & Communication (ACT)</option>
+                <option value="Information Science & Engineering">Information Science & Engineering</option>
+                <option value="Mechanical Engineering">Mechanical Engineering</option>
+                <option value="Robotics & Artificial Intelligence">Robotics & Artificial Intelligence</option>
+                <option value="1st Year">1st Year</option>
+            </select>
+
+            <label for="classroom">Classroom Number:</label>
+            <input type="text" id="classroom" name="classroom" aria-label="Classroom Number" placeholder="Classroom Number" required pattern="[a-zA-Z0-9]+" title="Please enter a valid classroom number.">
+
+            <label for="year">Year:</label>
+            <select id="year" name="year" aria-label="Year" required>
+                <option value="">Select</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+            </select>
+
+            <label for="sec">Section:</label>
+            <input type="text" id="sec" name="sec" aria-label="Section" placeholder="Section" required pattern="[a-zA-Z0-9]+" title="Please enter a valid section.">
+
+            <label for="resource">Resource Type:</label>
+            <select id="resource" name="resource" aria-label="Resource Type" required>
+                <option value="">Select</option>
+                <option value="Laptop">Laptop</option>
+                <option value="Projector Remote">Projector Remote</option>
+                <option value="Projector">Projector</option>
+                <option value="Speaker">Speaker</option>
+            </select>
+
+            <label for="faculty">Faculty Incharge for the class:</label>
+            <input type="text" id="faculty" name="faculty" aria-label="Faculty Incharge for the class" placeholder="Faculty Incharge" required title="Please enter the name of the faculty in charge.">
+
+            <label for="timeFrom">Time From:</label>
+            <input type="time" id="timeFrom" name="timeFrom" aria-label="Time From" required>
+
+            <label for="timeTo">Time To:</label>
+            <input type="time" id="timeTo" name="timeTo" aria-label="Time To" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" aria-label="Email" placeholder="@nmamit.in" required pattern="[a-zA-Z0-9._%+-]+@nmamit\.in" title="Please enter a valid nmamit.in email address.">
+
+        </fieldset>
+        <div class="button-group">
+            <button type="submit">Submit</button>
+            <button type="reset">Reset</button>
+        </div>
+    </form>
+</div>
+
+<script>
+     document.addEventListener('DOMContentLoaded', () => {
+        const form = document.getElementById('resourceForm');
+
+        form.addEventListener('input', (e) => {
+            const target = e.target;
+            if (target.validity.valid) {
+                target.style.backgroundColor = 'green';
+            } else {
+                target.style.backgroundColor = 'red';
+            }
+        });
+    });
+    document.getElementById('resourceForm').addEventListener('submit', function(e) {
+        let isValid = true;
+
+        const timeFromField = document.getElementById('timeFrom');
+        const timeToField = document.getElementById('timeTo');
+
+        if (timeFromField.value && timeToField.value && timeFromField.value >= timeToField.value) {
+            alert('Time From must be earlier than Time To');
+            isValid = false;
+        }
+
+        if (!isValid) {
+            e.preventDefault();
+        }
+    });
+    document.addEventListener('DOMContentLoaded', () => {
+        const emailField = document.getElementById('email');
+        const nameField = document.getElementById('usn');
+
+        emailField.addEventListener('focus', () => {
+            if (!emailField.value.includes('@nmamit.in')) {
+                emailField.value = nameField.value.replace(/\s+/g, '').toLowerCase() + '@nmamit.in';
+            }
+        });
+    });
+    
+</script>
+
+</body>
+</html>
